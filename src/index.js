@@ -52,6 +52,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function createRoad(){
+    const newArray = [[2,5]]
+    for (let i = 0; i < newArray.length; i++){
+      const [row,col] = newArray[i];
+      this.gameGrid[row][col].road = true;
+    }
+  }
+
+  
+  function isRoad([x,y]){ // 360,0 
+    const coordToIdx = coord => Math.floor(coord/cellSize) 
+    return gameGrid[coordToIdx(y)][coordToIdx(x)].road
+  }
+
+
   class Predator {
     constructor(verticalPosition) {
       this.x = canvas.width;
@@ -60,9 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
       this.height = cellSize;
       this.speed = Math.random() * 0.9 + 1;
       this.movement = this.speed;
-      this.health = 10;
+      this.health = 100;
       this.maxHealth = this.health;
     }
+
 
     update() {
       this.x -= this.movement;
@@ -83,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
       predators[i].draw();
     }
     if (frame % 150 === 0){
-      let verticalPosition = Math.floor(Math.random() * 5 + 1) * cellSize;
+      let verticalPosition = Math.floor(Math.random() * 5) * cellSize;
       predators.push(new Predator(verticalPosition));
       predatorPositions.push(verticalPosition);
     }
