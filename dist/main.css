@@ -6,9 +6,13 @@ body {
 }
 
 #canvas {
-  background-color: green;
+  background: url("https://creatr-seed.s3.amazonaws.com/guardian_wireframe2.png");
   border: 2px solid black;
   border-radius: 5px;
-  width: 1900x;
-  height: 600px;
+}
+
+#mainTitle {
+  font-size: large;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-left: 50px;
 }

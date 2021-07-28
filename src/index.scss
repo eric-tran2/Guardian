@@ -1,8 +1,15 @@
 body {
   background: gray;
 }
-#canvas1 {
-  background-color: green;
+#canvas {
+  // background-color: green;
+  background: url("https://creatr-seed.s3.amazonaws.com/guardian_wireframe2.png") ;
   border: 2px solid black;
   border-radius: 5px;
+}
+
+#mainTitle {
+  font-size: large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-left: 50px;
 }
