@@ -26,5 +26,11 @@
     "sass-loader": "^12.1.0",
     "webpack": "^5.46.0",
     "webpack-cli": "^4.7.2"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "image-webpack-loader": "^7.0.1",
+    "style-loader": "^3.2.1",
+    "webpack-cli": "^4.7.0"
   }
 }
