@@ -6,9 +6,11 @@ body {
 }
 
 #canvas {
-  background: url("https://creatr-seed.s3.amazonaws.com/guardian_wireframe2.png");
+  background: url("https://creatr-seed.s3.amazonaws.com/guardian_emoji_grid6.png");
   border: 2px solid black;
   border-radius: 5px;
+  height: 750;
+  width: 2100;
 }
 
 #mainTitle {

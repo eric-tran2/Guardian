@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
-  canvas.height = 700;
+  canvas.height = 750;
   canvas.width = 2100;
 
   // global variables
@@ -37,11 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ctx.fillStyle = 'blue';
   // ctx.fillRect(0,0,250,250)
 
-  // const controlsBar = {
-  //   height: cellSize,
-  //   width: canvas.width,
-  // }
-
   class Cell {
     constructor(x,y){
       this.x = x;
@@ -51,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     draw(){
       if (mouse.x && mouse.y && collision(this, mouse)){
-        ctx.strokeStyle = 'black';
+        ctx.strokeStyle = 'white';
         ctx.strokeRect(this.x, this.y, this.width, this.height);
       }
     }
@@ -74,8 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     draw() {
-      // ctx.fillStyle = 'white';
-      // ctx.fillRect(this.x, this.y, this.width, this.height);
+      ctx.fillStyle = 'green';
+      ctx.fillRect(this.x, this.y, this.width, this.height);
       ctx.fillStyle = 'black';
       ctx.font = '30px Arial';
       ctx.fillText(Math.floor(this.health), this.x + 15, this.y + 30);
@@ -114,8 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function animate(){
     ctx.clearRect(0,0, canvas.width, canvas.height);
-    // ctx.fillStyle = 'blue';
-    // ctx.fillRect(0,0,controlsBar.width, controlsBar.height);
+    ctx.fillStyle = 'blue';
     // ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
     handleGameGrid();
     handlePredators();
