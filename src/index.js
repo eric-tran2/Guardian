@@ -8,9 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // global variables
   const cellSize = 75;
   const cellGap = 3;
+  let startingGold = 300;
   const gameGrid = [];
   const predators = [];
   const predatorPositions = [];
+  const defenders = [];
+  const projectiles = [];
+  const turret1 = document.getElementById('turret')
   let frame = 0;
 
   const mouse = {
@@ -33,6 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
     mouse.x = undefined;
     mouse.y = undefined;
   })
+
+  function drawPicture(img, sX, sY, sW, sH) {
+    ctx.drawImage(img, sX, sY, sW, sH);
+  }
 
   // ctx.fillStyle = 'blue';
   // ctx.fillRect(0,0,250,250)
@@ -98,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
       predators[i].update();
       predators[i].draw();
     }
-    if (frame % 150 === 0){
+    if (frame % 250 === 0){
       let verticalPosition = Math.floor(Math.random() * 5) * cellSize;
       predators.push(new Predator(verticalPosition));
       predatorPositions.push(verticalPosition);
@@ -110,6 +118,88 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let x = 0; x < canvas.width; x += cellSize) {
         gameGrid.push(new Cell(x,y));
       }
+    }
+  }
+
+  class Defender {
+    constructor(x,y){
+      this.x = x;
+      this.y = y; 
+      // this.width = cellSize;
+      // this.height = cellSize;
+      this.width = 136;
+      this.height = 128;
+      this.shoot = false;
+      this.timer = 0;
+      // this.health = 100;
+    }
+    draw(){
+      // ctx.fillStyle = 'blue';
+      // ctx.fillRect(this.x, this.y, this.width, this.height);
+      drawPicture(turret1, this.x, this.y, this.width, this.height)
+      // ctx.fillStyle = 'gold';
+      // ctx.font = '20px Arial';
+      // ctx.fillText(this.health, this.x, this.y);
+    }
+    update(){
+      this.timer++;
+      if (this.timer % 100 === 0){
+        projectiles.push(new Projectile(this.x + 35, this.y + 35));
+      }
+    }
+  }
+  canvas.addEventListener('click', function(){
+    const gridPositionX = mouse.x - (mouse.x % cellSize);
+    const gridPositionY = mouse.y - (mouse.y % cellSize);
+    for (let i = 0; i < defenders.length; i++){
+      if (defenders[i].x === gridPositionX && defenders[i].y === gridPositionY){
+        return;
+      }
+    }
+    let defenderCost = 100;
+    if (startingGold >= defenderCost) {
+      defenders.push(new Defender(gridPositionX, gridPositionY));
+      startingGold -= defenderCost;
+    }
+  })
+
+  function handleDefenders(){
+    for (let i = 0; i < defenders.length; i++){
+      defenders[i].draw();
+      defenders[i].update();
+    }
+  }
+
+  class Projectile{
+    constructor(x,y){
+      this.x = x;
+      this.y = y;
+      this.width = 10;
+      this.height = 20;
+      this.power = 20;
+      this.speed = 20;
+    }
+    update(){
+      this.x += this.speed;
+    }
+    draw(){
+      ctx.fillStyle = 'black';
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.width, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function handleProjectiles(){
+    for (let i = 0; i < projectiles.length; i++){
+      projectiles[i].update();
+      projectiles[i].draw();
+
+      if (projectiles[i] && projectiles[i].x > canvas.width - cellSize){
+        projectiles.splice(i, 1);
+        i--;
+      }
+      console.log('projectiles ' + projectiles.length);
     }
   }
 
@@ -129,6 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
     handleGameGrid();
     handlePredators();
+    handleDefenders();
+    handleProjectiles();
     requestAnimationFrame(animate);
     frame++;
   }
@@ -142,6 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
   }
+  window.addEventListener('resize', function(){
+    canvasPosition = canvas.getBoundingClientRect();
+  })
 
-
+  
 })
