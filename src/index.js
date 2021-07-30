@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const cellSize = 75;
   const cellGap = 3;
-  let startingGold = 200;
   const gameGrid = [];
   const predators = [];
   const predatorPositions = [];
@@ -16,11 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const turret1 = document.getElementById('turret')
   const wolf = document.getElementById('wolf')
   const projectileRight = document.getElementById('tankShootR');
+  let startingChicken = 20;
+  let score = 0;
+  let startingGold = 200;
   let frame = 0;
 
   const statusBar = {
     width: canvas.width,
     height: canvas.height,
+  }
+
+  function handleStatusBar(){
+    ctx.fillStyle = 'gold';
+    ctx.font = '30px Georgia';
+    ctx.fillText('Gold: ' + startingGold, 2100, 100);
+    ctx.fillText('Points: ' + score, 2100, 50);
+    ctx.fillText('Chickens: ' + startingChicken, 2100, 150);
   }
 
   const mouse = {
@@ -279,8 +289,9 @@ document.addEventListener('DOMContentLoaded', () => {
     handlePredators();
     handleTanks();
     handleProjectiles();
-    requestAnimationFrame(animate);
+    handleStatusBar();
     frame++;
+    requestAnimationFrame(animate);
   }
 
   animate();
