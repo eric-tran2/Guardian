@@ -3,12 +3,13 @@
   \*************************************************************************************************************************************/
 body {
   background-color: #000024;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: x-large;
+  font-family: "Nanum Pen Script", cursive;
+  font-size: xx-large;
   color: white;
 }
 
 #canvas {
+  font-family: "Nanum Pen Script", cursive;
   background: url("https://creatr-seed.s3.amazonaws.com/guardian_emoji_grid10.png") no-repeat;
   border: 2px solid white;
   border-radius: 10px;

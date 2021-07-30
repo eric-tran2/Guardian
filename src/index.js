@@ -29,10 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleStatusBar(){
     ctx.fillStyle = 'gold';
-    ctx.font = '30px Georgia';
+    ctx.font = '50px Nanum Pen Script';
     ctx.fillText('Gold: ' + startingGold, 2100, 100);
     ctx.fillText('Points: ' + score, 2100, 50);
     ctx.fillText('Chickens: ' + startingChicken, 2100, 150);
+    if (gameOver){
+      ctx.fillStyle = 'black';
+      ctx.font = '90px Nanum Pen Script';
+      ctx.fillText('❌❌❌GAME OVER BUDDY❌❌❌', 500, 230);
+      ctx.fillText('😭YOU LET YOUR CHICKENS GET EATEN 😭', 420, 370);
+    }
   }
 
   const mouse = {
@@ -159,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.x = (createdRoad[this.i][1] * this.width);
         this.y = (createdRoad[this.i][0] * this.height);
         this.i++;
-        this.ti = 5; // this is the speed of the predator
+        this.ti = 15; // this is the speed of the predator
       }else if( this.ti > 0){
         this.ti--;
       }
@@ -170,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // ctx.fillStyle = 'blue';
       // ctx.fillRect(this.x, this.y, this.width, this.height);
       ctx.fillStyle = 'white';
-      ctx.font = '35px Georgia';
+      ctx.font = '65px Nanum Pen Script';
       ctx.fillText(Math.floor(this.health), this.x + 15, this.y + 30);
     }
   }
@@ -185,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         score += 1;
         startingGold += 50;
       }
-      if (predators[i].x === 375 && predators[i].y === 600){
+      if (predators[i] && predators[i].x === 375 && predators[i].y === 600){
         predatorFinishLine.push(predators.splice(i, 1));
         i--;
         startingChicken--;
