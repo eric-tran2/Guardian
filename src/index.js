@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.x = (createdRoad[this.i][1] * this.width);
         this.y = (createdRoad[this.i][0] * this.height);
         this.i++;
-        this.ti = 15; // this is the speed of the predator
+        this.ti = 13; // this is the speed of the predator
       }else if( this.ti > 0){
         this.ti--;
       }
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gameOver = true;
       }
     }
-    if (frame % 250 === 0){
+    if (frame % 200 === 0){ // spawn time
       // let verticalPosition = Math.floor(Math.random() * 5) * cellSize;
       // predators.push(new Predator(verticalPosition));
       // predatorPositions.push(verticalPosition);
