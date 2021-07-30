@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
   canvas.height = 750;
-  canvas.width = 2300;
+  canvas.width = 2400;
 
   // global variables
   const cellSize = 75;
@@ -271,7 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function animate(){
     ctx.clearRect(0,0, canvas.width, canvas.height);
-    // ctx.fillStyle = 'blue';
     handleGameGrid();
     handlePredators();
     handleTanks();
