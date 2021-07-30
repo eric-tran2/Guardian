@@ -1,5 +1,7 @@
 body {
-  background: gray;
+  background: url("https://creatr-seed.s3.amazonaws.com/guardian_wireframe2.png");
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: x-large;
 }
 #canvas {
   // background-color: green;
@@ -15,13 +17,11 @@ body {
   width: 2100;
 }
 
-#mainTitle {
-  font-size: large;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  margin-left: 50px;
-}
 
 #turret {
   display: none;
-  // transform: rotate(90deg);
+}
+
+#wolf {
+  display: none;
 }
