@@ -177,6 +177,12 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < predators.length; i++){
       predators[i].update();
       predators[i].draw();
+      if (predators[i].health <= 0){
+        predators.splice(i,1);
+        i--;
+        score += 1;
+        startingGold += 50;
+      }
     }
     if (frame % 250 === 0){
       // let verticalPosition = Math.floor(Math.random() * 5) * cellSize;
@@ -247,8 +253,8 @@ document.addEventListener('DOMContentLoaded', () => {
       this.y = y;
       this.width = 10;
       this.height = 20;
-      this.power = 20;
       this.speed = 20;
+      this.damage = 20;
     }
     update(){
       this.x += this.speed;
@@ -262,6 +268,14 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < projectiles.length; i++){
       projectiles[i].update();
       projectiles[i].draw();
+
+      for (let x = 0; x < predators.length; x++){
+        if (predators[x] && projectiles[i] && collision(projectiles[i], predators[x])){
+          predators[x].health -= projectiles[i].damage;
+          projectiles.splice(i, 1);
+          i--;
+        }
+      }
 
       if (projectiles[i] && projectiles[i].x > canvas.width - 400){
         projectiles.splice(i, 1);
