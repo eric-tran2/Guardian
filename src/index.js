@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
       projectiles[i].update();
       projectiles[i].draw();
 
-      if (projectiles[i] && projectiles[i].x > canvas.width - cellSize){
+      if (projectiles[i] && projectiles[i].x > canvas.width - 400){
         projectiles.splice(i, 1);
         i--;
       }
