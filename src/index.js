@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // global variables
   const cellSize = 75;
   const cellGap = 3;
-  let startingGold = 100;
+  let startingGold = 200;
   const gameGrid = [];
   const predators = [];
   const predatorPositions = [];
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectiles = [];
   const turret1 = document.getElementById('turret')
   const wolf = document.getElementById('wolf')
+  const projectileRight = document.getElementById('tankShootR');
   let frame = 0;
 
   const mouse = {
@@ -239,10 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.x += this.speed;
     }
     draw(){
-      ctx.fillStyle = 'black';
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.width, 0, Math.PI * 2);
-      ctx.fill();
+      drawPicture(projectileRight, this.x, this.y-40, this.width+60, this.height+60)
     }
   }
 
@@ -255,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         projectiles.splice(i, 1);
         i--;
       }
-      console.log('projectiles ' + projectiles.length);
+      // console.log('projectiles ' + projectiles.length);
     }
   }
 
@@ -271,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function animate(){
     ctx.clearRect(0,0, canvas.width, canvas.height);
+    // ctx.fillStyle = 'blue';
     handleGameGrid();
     handlePredators();
     handleTanks();
