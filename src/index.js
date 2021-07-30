@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [5,7],
     [6, 7], [6, 8], [6, 9], [6, 10], [6, 11], [6, 12], [6, 13], [6, 14], [6, 15], [6, 16], [6, 17], [6, 18], [6, 19], [6, 20], [6, 21], [6, 22], [6, 23], [6, 24], [6, 25], [6, 26],
     [7,26],
-    [8, 27], [8, 26], [8, 25], [8, 24], [8, 23], [8, 22], [8, 21], [8, 20], [8, 19], [8, 18], [8, 17], [8, 16], [8, 15], [8, 14], [8, 13], [8, 12], [8, 11], [8, 10], [8, 9], [8, 8], [8, 7], [8, 6], [8, 5]
+    [8, 26], [8, 25], [8, 24], [8, 23], [8, 22], [8, 21], [8, 20], [8, 19], [8, 18], [8, 17], [8, 16], [8, 15], [8, 14], [8, 13], [8, 12], [8, 11], [8, 10], [8, 9], [8, 8], [8, 7], [8, 6], [8, 5]
   ]
 
 
@@ -137,11 +137,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // if(isRoad([this.x, this.y])){
         // this.x -= this.movement;
       // }
-      if(this.i < 120 && this.ti === 0){
+      if(this.i < createdRoad.length && this.ti === 0){
         this.x = (createdRoad[this.i][1] * this.width);
         this.y = (createdRoad[this.i][0] * this.height);
         this.i++;
-        this.ti = 30;
+        this.ti = 5; // this is the speed of the predator
       }else if( this.ti > 0){
         this.ti--;
       }
