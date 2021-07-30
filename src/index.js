@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
   canvas.height = 750;
-  canvas.width = 2100;
+  canvas.width = 2300;
 
   // global variables
   const cellSize = 75;
@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tanks = [];
   const projectiles = [];
   const turret1 = document.getElementById('turret')
+  const wolf = document.getElementById('wolf')
   let frame = 0;
 
   const mouse = {
@@ -123,9 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
       this.y = verticalPosition;
       this.width = cellSize;
       this.height = cellSize;
-      this.speed = Math.random() * .001;
-      // this.speed = 
-      this.movement = this.speed;
+      // this.speed = Math.random() * .001;
+      // // this.speed = 
+      // this.movement = this.speed;
       this.health = 100;
       this.maxHealth = this.health;
       this.i = 0;
@@ -141,17 +142,18 @@ document.addEventListener('DOMContentLoaded', () => {
         this.x = (createdRoad[this.i][1] * this.width);
         this.y = (createdRoad[this.i][0] * this.height);
         this.i++;
-        this.ti = 5; // this is the speed of the predator
+        this.ti = 15; // this is the speed of the predator
       }else if( this.ti > 0){
         this.ti--;
       }
     }
 
     draw() {
-      ctx.fillStyle = 'blue';
-      ctx.fillRect(this.x, this.y, this.width, this.height);
-      ctx.fillStyle = 'black';
-      ctx.font = '30px Arial';
+      drawPicture(wolf, this.x, this.y, this.width, this.height)
+      // ctx.fillStyle = 'blue';
+      // ctx.fillRect(this.x, this.y, this.width, this.height);
+      ctx.fillStyle = 'white';
+      ctx.font = '35px Georgia';
       ctx.fillText(Math.floor(this.health), this.x + 15, this.y + 30);
     }
   }

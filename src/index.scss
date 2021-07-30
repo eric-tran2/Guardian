@@ -1,7 +1,9 @@
 body {
-  background: url("https://creatr-seed.s3.amazonaws.com/guardian_wireframe2.png");
+  // background: url("https://creatr-seed.s3.amazonaws.com/guardian_wireframe2.png");
+  background-color: black;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: x-large;
+  color: white;
 }
 #canvas {
   // background-color: green;
@@ -10,9 +12,9 @@ body {
   // background: url("https://creatr-seed.s3.amazonaws.com/Guardian_cleangrid.png");
   // background: url("https://creatr-seed.s3.amazonaws.com/guardian_emoji_grid4.png");
   // background: url("https://creatr-seed.s3.amazonaws.com/guardian_emoji_grid5.png");
-  background: url("https://creatr-seed.s3.amazonaws.com/guardian_emoji_grid6.png");
-  border: 2px solid black;
-  border-radius: 5px;
+  background: url("https://creatr-seed.s3.amazonaws.com/guardian_emoji_grid6.png") no-repeat ;
+  border: 2px solid white;
+  border-radius: 10px;
   height: 750;
   width: 2100;
 }
