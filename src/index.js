@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   canvas.height = 750;
   canvas.width = 2400;
 
-  // global variables
   const cellSize = 75;
   const cellGap = 3;
   let startingGold = 200;
@@ -18,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const wolf = document.getElementById('wolf')
   const projectileRight = document.getElementById('tankShootR');
   let frame = 0;
+
+  const statusBar = {
+    width: canvas.width,
+    height: canvas.height,
+  }
 
   const mouse = {
     x: undefined,
@@ -269,7 +273,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function animate(){
     ctx.clearRect(0,0, canvas.width, canvas.height);
-    // ctx.fillStyle = 'blue';
+    ctx.fillStyle = '#000024';
+    ctx.fillRect(2100,0, statusBar.width, statusBar.height);
     handleGameGrid();
     handlePredators();
     handleTanks();
