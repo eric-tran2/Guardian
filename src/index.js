@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const predatorPositions = [];
   const tanks = [];
   const projectiles = [];
+  const predatorFinishLine = [];
   const turret1 = document.getElementById('turret')
   const wolf = document.getElementById('wolf')
   const projectileRight = document.getElementById('tankShootR');
+  let gameOver = false;
   let startingChicken = 20;
   let score = 0;
   let startingGold = 200;
@@ -157,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.x = (createdRoad[this.i][1] * this.width);
         this.y = (createdRoad[this.i][0] * this.height);
         this.i++;
-        this.ti = 15; // this is the speed of the predator
+        this.ti = 5; // this is the speed of the predator
       }else if( this.ti > 0){
         this.ti--;
       }
@@ -177,11 +179,19 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < predators.length; i++){
       predators[i].update();
       predators[i].draw();
-      if (predators[i].health <= 0){
+      if (predators[i].health === 0){
         predators.splice(i,1);
         i--;
         score += 1;
         startingGold += 50;
+      }
+      if (predators[i].x === 375 && predators[i].y === 600){
+        predatorFinishLine.push(predators.splice(i, 1));
+        i--;
+        startingChicken--;
+      }
+      if (startingChicken === 0){
+        gameOver = true;
       }
     }
     if (frame % 250 === 0){
@@ -305,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleProjectiles();
     handleStatusBar();
     frame++;
-    requestAnimationFrame(animate);
+    if (!gameOver) requestAnimationFrame(animate);
   }
 
   animate();
