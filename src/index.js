@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const turret1 = document.getElementById('turret')
   const wolf = document.getElementById('wolf')
   const projectileRight = document.getElementById('tankShootR');
+  const chickenInBarn = document.getElementById('chikens');
   let gameOver = false;
   let startingChicken = 20;
   let score = 0;
