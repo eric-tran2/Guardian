@@ -106,6 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
     [3, 0], [3, 3] [3, 2], [3, 3], [3, 4], [3, 5], [3, 6], [3, 7], [3, 8], [3, 9], [3, 10], [3, 11], [3, 12], [3, 13], [3, 14], [3, 15], [3, 16], [3, 17], [3, 18], [3, 19], [3, 20], [3, 21], [3, 22], [3, 23], [3, 24], [3, 25], [3, 27],
   ]
 
+  
+
 
   
 
@@ -188,6 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.font = '65px Nanum Pen Script';
       ctx.fillText(Math.floor(this.health), this.x + 15, this.y + 30);
     }
+  }
+
+  class Chicken {
+
   }
 
   function handlePredators(){
