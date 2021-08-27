@@ -193,6 +193,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   class Chicken {
+    constructor(x,y) {
+      this.x = canvas.width;
+      this.y = canvas.height;
+      this.width = cellSize;
+      this.height = cellSize;
+    }
+
+    draw() {
+      drawPicture(chickenInBarn, this.x, this.y, this.width, this.height)
+    }
 
   }
 
