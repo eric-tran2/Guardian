@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const predators = [];
   const predatorPositions = [];
   const tanks = [];
+  const chickens = [];
   const projectiles = [];
   const predatorFinishLine = [];
   const turret1 = document.getElementById('turret')
@@ -192,19 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  class Chicken {
-    constructor(x,y) {
-      this.x = canvas.width;
-      this.y = canvas.height;
-      this.width = cellSize;
-      this.height = cellSize;
-    }
-
-    draw() {
-      drawPicture(chickenInBarn, this.x, this.y, this.width, this.height)
-    }
-
-  }
 
   function handlePredators(){
     for (let i = 0; i < predators.length; i++){
@@ -233,6 +221,21 @@ document.addEventListener('DOMContentLoaded', () => {
       predatorPositions.push(0);
     }
   }
+
+  class Chicken {
+    constructor(x, y) {
+      this.x = canvas.width;
+      this.y = canvas.height;
+      this.width = cellSize;
+      this.height = cellSize;
+    }
+
+    draw() {
+      drawPicture(chickenInBarn, this.x, this.y, this.width, this.height)
+    }
+
+  }
+
   
   function createGrid(){
     for (let y = 0; y < canvas.height; y += cellSize) {
