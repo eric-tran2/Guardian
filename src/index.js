@@ -236,6 +236,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
+  function handleChickens {
+    
+  }
+
   
   function createGrid(){
     for (let y = 0; y < canvas.height; y += cellSize) {
