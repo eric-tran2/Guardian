@@ -236,9 +236,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  function handleChickens {
+  // function handleChickens {
     
-  }
+  // }
 
   
   function createGrid(){
