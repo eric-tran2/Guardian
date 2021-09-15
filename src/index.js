@@ -236,9 +236,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  // function handleChickens {
+  function handleChickens {
+    for (let i = 0; i < projectiles.length; i++) {
+      projectiles[i].update();
+      projectiles[i].draw();
     
-  // }
+  }
 
   
   function createGrid(){
