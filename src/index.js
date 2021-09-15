@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 20; i > chickens.length; i--) {
       chickens[i].update();
       chickens[i].draw();
-    
+    //while to reduce chickens each time it has been eaten'
   }
 
   
