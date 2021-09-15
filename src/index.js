@@ -237,9 +237,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function handleChickens {
-    for (let i = 0; i < projectiles.length; i++) {
-      projectiles[i].update();
-      projectiles[i].draw();
+    for (let i = 0; i < chickens.length; i++) {
+      chickens[i].update();
+      chickens[i].draw();
     
   }
 
