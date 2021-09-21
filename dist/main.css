@@ -17,7 +17,7 @@ body {
   width: 2100;
 }
 
-/* #turret {
+#turret {
   display: none;
 }
 
@@ -28,7 +28,7 @@ body {
 #tankShootR {
   display: none;
 }
-
+/* 
 #chikens {
   display: none;
 } */
